@@ -16,6 +16,9 @@ usersRouter.post('/', async (request, response) => {
       is_provider
     })
 
+    // @ts-expect-error temporary delete operator
+    delete user.password
+
     return response.json(user)
   } catch (err: any) {
     return response.status(400).json({ error: err.message })
