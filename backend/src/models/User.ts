@@ -20,6 +20,9 @@ class User {
   @Column()
   password: string
 
+  @Column({ type: 'boolean', default: false })
+  is_provider: boolean
+
   @CreateDateColumn()
   created_at: Date
 
