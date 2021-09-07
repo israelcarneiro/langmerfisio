@@ -1,4 +1,9 @@
-prototype
-node_modules
+.idea/
+.vscode/
+prototype/
+node_modules/
 .env
-dist
+dist/
+temp/
+tmp/
+!temp/.gitkeep

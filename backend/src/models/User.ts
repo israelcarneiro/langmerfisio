@@ -20,6 +20,9 @@ class User {
   @Column()
   password: string
 
+  @Column()
+  avatar: string
+
   @Column({ type: 'boolean', default: false })
   is_provider: boolean
 
