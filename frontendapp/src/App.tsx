@@ -12,7 +12,7 @@ const App: React.FC = () => (
       backgroundColor="rgb(0,109,119)"
       translucent
     />
-    <View style={{ backgroundColor: 'rgba(0,109,119,0.8)', flex: 1 }}>
+    <View style={{ backgroundColor: 'rgba(0,109,119,0.7)', flex: 1 }}>
       <Routes />
     </View>
   </NavigationContainer>
