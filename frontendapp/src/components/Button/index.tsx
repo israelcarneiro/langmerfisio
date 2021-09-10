@@ -12,7 +12,7 @@ interface ButtonProps extends RectButtonProperties {
 }
 
 const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
-  <GestureHandlerRootView style={{ width: '100%' }}>
+  <GestureHandlerRootView style={{ maxWidth: '100%' }}>
     <Container {...rest}>
       <ButtonText>{children}</ButtonText>
     </Container>
