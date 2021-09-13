@@ -1,49 +1,22 @@
 import { Router } from 'express'
-import { container } from 'tsyringe'
 import multer from 'multer'
 import uploadConfig from '@config/upload'
 
+import UsersController from '../controllers/UsersController'
+import UserAvatarController from '../controllers/UserAvatarController'
 import ensureAuthenticated from '../middlewares/ensureAuthenticated'
-import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService'
-import CreateUserService from '@modules/users/services/CreateUserService'
 
 const usersRouter = Router()
+const usersController = new UsersController()
+const userAvatarController = new UserAvatarController()
 const upload = multer(uploadConfig)
 
-usersRouter.post('/', async (request, response) => {
-  const { name, email, password, is_provider } = request.body
-
-  const createUser = container.resolve(CreateUserService)
-
-  const user = await createUser.execute({
-    name,
-    email,
-    password,
-    is_provider
-  })
-
-  // @ts-expect-error temporary delete operator
-  delete user.password
-
-  return response.json(user)
-})
+usersRouter.post('/', usersController.create)
 
 usersRouter.patch(
   '/avatar',
   ensureAuthenticated,
   upload.single('avatar'),
-  async (request, response) => {
-    const updateUserAvatar = container.resolve(UpdateUserAvatarService)
-
-    const user = await updateUserAvatar.execute({
-      user_id: request.user.id,
-      avatarFilename: request.file?.filename
-    })
-
-    // @ts-expect-error temporary delete operator
-    delete user.password
-
-    return response.json(user)
-  }
+  userAvatarController.update
 )
 export default usersRouter
