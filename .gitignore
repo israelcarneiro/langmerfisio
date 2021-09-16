@@ -7,3 +7,4 @@ dist/
 temp/
 tmp/
 !temp/.gitkeep
+coverage
