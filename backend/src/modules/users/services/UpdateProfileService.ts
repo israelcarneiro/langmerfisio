@@ -61,7 +61,7 @@ class UpdateProfileService {
     user.name = name
     user.email = email
 
-    return user
+    return this.usersRepository.save(user)
   }
 }
 
