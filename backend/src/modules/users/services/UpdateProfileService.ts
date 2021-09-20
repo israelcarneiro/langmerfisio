@@ -23,15 +23,17 @@ class UpdateProfileService {
     private hashProvider: IHashProvider
   ) {}
 
-  public async execute({
-    user_id,
-    name,
-    email
-  }: IRequest): Promise<User | undefined> {
+  public async execute({ user_id, name, email }: IRequest): Promise<User> {
     const user = await this.usersRepository.findById(user_id)
 
     if (!user) {
       throw new AppError('User not found.')
+    }
+
+    const userWithUpdateEmail = await this.usersRepository.findByEmail(email)
+
+    if (userWithUpdateEmail && userWithUpdateEmail.id !== user_id) {
+      throw new AppError('Email already used.')
     }
 
     user.name = name
