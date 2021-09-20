@@ -23,7 +23,13 @@ class UpdateProfileService {
     private hashProvider: IHashProvider
   ) {}
 
-  public async execute({ user_id, name, email }: IRequest): Promise<User> {
+  public async execute({
+    user_id,
+    name,
+    email,
+    old_password,
+    password
+  }: IRequest): Promise<User> {
     const user = await this.usersRepository.findById(user_id)
 
     if (!user) {
@@ -34,6 +40,10 @@ class UpdateProfileService {
 
     if (userWithUpdateEmail && userWithUpdateEmail.id !== user_id) {
       throw new AppError('Email already used.')
+    }
+
+    if (password && !old_password) {
+      throw new AppError('You need to inform the old password to set a new one')
     }
 
     user.name = name
