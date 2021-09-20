@@ -5,7 +5,7 @@ import AppError from '@shared/errors/AppError'
 let fakeUsersRepository: FakeUsersRepository
 let showProfile: ShowProfileService
 
-describe('UpdateProfile', () => {
+describe('ShowProfile', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository()
     showProfile = new ShowProfileService(fakeUsersRepository)
@@ -24,5 +24,13 @@ describe('UpdateProfile', () => {
 
     expect(profile.name).toBe('John Doe')
     expect(profile.email).toBe('johndoe@example.com')
+  })
+
+  it('should be able to show the profile fron non-existing user', async () => {
+    expect(
+      showProfile.execute({
+        user_id: 'non-existing user'
+      })
+    ).rejects.toBeInstanceOf(AppError)
   })
 })
