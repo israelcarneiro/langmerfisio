@@ -56,6 +56,24 @@ describe('UpdateProfile', () => {
     ).rejects.toBeInstanceOf(AppError)
   })
 
+  it('should be able to update the password', async () => {
+    const user = await fakeUsersRepository.create({
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password: '123456'
+    })
+
+    const updatedUser = await updateProfile.execute({
+      user_id: user.id,
+      name: 'John doe',
+      email: 'johndoe@example.com',
+      old_password: '123456',
+      password: '123123'
+    })
+
+    expect(updatedUser.password).toBe('123123')
+  })
+
   it('should not be able to update the password without old password', async () => {
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
