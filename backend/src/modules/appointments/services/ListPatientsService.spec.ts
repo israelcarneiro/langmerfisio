@@ -1,5 +1,4 @@
-// import AppError from '@shared/errors/AppError'
-
+import AppError from '@shared/errors/AppError'
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository'
 import ListPatientsService from '../services/ListPatientsService'
 
@@ -39,5 +38,20 @@ describe('ListPatients', () => {
     })
 
     expect(patients).toEqual([anyUser1, anyUser2])
+  })
+
+  it('should not be able to list anothers patients if the user is a patient', async () => {
+    const loggedUser = await fakeUsersRepository.create({
+      name: 'John Roe',
+      email: 'johnroe@example.com',
+      password: '123123',
+      is_provider: false
+    })
+
+    await expect(
+      listPatients.execute({
+        user_id: loggedUser.id
+      })
+    ).rejects.toBeInstanceOf(AppError)
   })
 })
