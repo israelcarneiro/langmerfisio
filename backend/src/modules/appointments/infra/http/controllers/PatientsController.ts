@@ -11,6 +11,7 @@ export default class ProvidersController {
     const listPatients = container.resolve(ListPatientsService)
 
     const patients = await listPatients.execute({ user_id })
+
     return response.json(patients)
   }
 }

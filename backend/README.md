@@ -28,13 +28,92 @@
 - Para atualizar sua senha o usuário deve informar a senha antiga; ✔
 - Para atualizar sua senha o usuário deve confirmar sua nova senha; ✔
 
+# Agendamentos de Serviço
+
+## Agendamentos pelo Paciente
+
+**RF**
+
+- O paciente deve poder listar todos os fisioterapeutas cadastrados; ✔
+- O paciente deve poder listar os dias de um mês com pelo menos horário disponível de um fisioterapeuta;
+- O paciente deve poder listar horários disponíveis em dias específicos de um fisioterapeuta;
+- O paciente deve poder realizar um novo agendamento com um fisioterapeuta específico
+
+**RNF**
+
+- A listagem de fisioterapeutas devem ser armazenada em cache
+
+**RN**
+
+- Cada agendamento deve durar 1h exatamente;
+- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h);
+- O paciente não pode agendar em um horário já ocupado;
+- O paciente não pode agendar em um horário que já passou;
+- O paciente não pode agendar serviços consigo mesmo;
+
+## Agendamentos pelo Fisioterapeuta
+
+**RF**
+
+- O fisioterapeuta deve poder listar todos os pacientes cadastrados; ✔
+- O fisioterapeuta deve poder listar os dias de um mês com pelo menos horário disponível dele mesmo;
+- O fisioterapeuta deve poder listar horários disponíveis em dias específicos dele mesmo;
+- O fisioterapeuta deve poder realizar um novo agendamento com um paciente específico
+
+**RNF**
+
+- A listagem de pacientes devem ser armazenada em cache
+
+**RN**
+
+- Cada agendamento deve durar 1h exatamente;
+- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h);
+- O fisioterapeuta não pode agendar em um horário já ocupado;
+- O fisioterapeuta não pode agendar em um horário que já passou;
+- O fisioterapeuta não pode agendar serviços consigo mesmo;
+
+# Cancelamentos de Serviços
+## Cancelamento do Paciente
+
+**RF**
+
+- O fisioterapeuta deve poder listar todos os pacientes cadastrados; ✔
+- O fisioterapeuta deve poder listar os dias de um mês com pelo menos horário disponível dele mesmo;
+- O fisioterapeuta deve poder listar horários disponíveis em dias específicos dele mesmo;
+- O fisioterapeuta deve poder realizar um novo agendamento com um paciente;
+
+**RNF**
+
+- A listagem de pacientes devem ser armazenada em cache
+
+**RN**
+
+- Cada agendamento deve durar 1h exatamente;
+- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h);
+- O fisioterapeuta não pode agendar em um horário já ocupado;
+- O fisioterapeuta não pode agendar em um horário que já passou;
+- O fisioterapeuta não pode agendar serviços consigo mesmo;
+
+## Cancelamento do Fisioterapeuta
+
+**RF**
+- O fisioterapeuta deve poder cancelar um agendamento para um dia/horário e paciente específico;
+- O paciente deve receber uma notificação que o agendamento foi cancelado;
+
+**RNF**
+- A push notification deve ser enviada através do FireBase;
+
+**RN**
+- O fisioterapeuta só pode cancelar um agendamento com no mínimo 3hrs de antecedência
+- O fisioterapeuta deve visualizar uma tela de confirmação do cancelamento
+
+
 # Dashboard do Paciente
 
 **RF**
 
 - O paciente deve poder listar seus agendamentos;
 - O paciente deve poder selecionar um agendamento para ver mais detalhes do mesmo;
-- O paciente deve poder realizar um novo agendamento com um fisioterapeuta específico
 - O paciente deve receber uma notificação sempre que houver um novo agendamento;
 
 **RNF**
@@ -49,26 +128,6 @@
 
 **RN**
 - O paciente não deve visualizar agendamentos que já passaram da data/horário atual;
-
-  ## Agendamento de Serviços
-
-**RF**
-
-- O paciente deve poder listar todos os fisioterapeutas cadastrados;
-- O paciente deve poder listar os dias de um mês com pelo menos horário disponível de um fisioterapeuta;
-- O paciente deve poder listar horários disponíveis em dias específicos de um fisioterapeuta;
-
-**RNF**
-
-- A listagem de fisioterapeutas devem ser armazenada em cache
-
-**RN**
-
-- Cada agendamento deve durar 1h exatamente;
-- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h);
-- O paciente não pode agendar em um horário já ocupado;
-- O paciente não pode agendar em um horário que já passou;
-- O paciente não pode agendar serviços consigo mesmo;
 
   ## Cancelamento de Serviços
 
@@ -91,7 +150,7 @@
 
 - O fisioterapeuta deve poder listar seus agendamentos de um dia específico;
 - O fisioterapeuta deve poder selecionar um agendamento para ver mais detalhes do mesmo;
-- O fisioterapeuta deve poder realizar um novo agendamento com um paciente específico
+
 - O fisioterapeuta deve receber uma notificação sempre que houver um novo agendamento;
 
 **RNF**
@@ -108,37 +167,4 @@
 - O fisioterapeuta não deve visualizar agendamentos que já passaram da data/horário atual;
 
 
-  ## Agendamento de Serviços
-
-**RF**
-
-- O fisioterapeuta deve poder listar todos os pacientes cadastrados;
-- O fisioterapeuta deve poder listar os dias de um mês com pelo menos horário disponível dele mesmo;
-- O fisioterapeuta deve poder listar horários disponíveis em dias específicos dele mesmo;
-- O fisioterapeuta deve poder realizar um novo agendamento com um paciente;
-
-**RNF**
-
-- A listagem de pacientes devem ser armazenada em cache
-
-**RN**
-
-- Cada agendamento deve durar 1h exatamente;
-- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h);
-- O fisioterapeuta não pode agendar em um horário já ocupado;
-- O fisioterapeuta não pode agendar em um horário que já passou;
-- O fisioterapeuta não pode agendar serviços consigo mesmo;
-
-  ## Cancelamento de Serviços
-
-**RF**
-- O fisioterapeuta deve poder cancelar um agendamento para um dia/horário e paciente específico;
-- O paciente deve receber uma notificação que o agendamento foi cancelado;
-
-**RNF**
-- A push notification deve ser enviada através do FireBase;
-
-**RN**
-- O fisioterapeuta só pode cancelar um agendamento com no mínimo 3hrs de antecedência
-- O fisioterapeuta deve visualizar uma tela de confirmação do cancelamento
 
