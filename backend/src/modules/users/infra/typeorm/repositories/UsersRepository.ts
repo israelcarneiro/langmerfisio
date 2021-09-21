@@ -46,6 +46,28 @@ class UsersRepository implements IUsersRepository {
     return users
   }
 
+  public async findAllPatients({
+    except_user_id
+  }: IFindAllProvidersDTO): Promise<User[]> {
+    let users: User[]
+    if (except_user_id) {
+      users = await this.ormRepository.find({
+        where: {
+          id: Not(except_user_id),
+          is_provider: false
+        }
+      })
+    } else {
+      users = await this.ormRepository.find({
+        where: {
+          is_provider: false
+        }
+      })
+    }
+
+    return users
+  }
+
   public async create(userData: ICreateUserDTO): Promise<User> {
     const appointment = this.ormRepository.create(userData)
 

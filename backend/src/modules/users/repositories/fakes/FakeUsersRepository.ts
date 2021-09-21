@@ -29,6 +29,20 @@ class FakeUsersRepository implements IUsersRepository {
     return users
   }
 
+  public async findAllPatients({
+    except_user_id
+  }: IFindAllProvidersDTO): Promise<User[]> {
+    let { users } = this
+
+    if (except_user_id) {
+      users = this.users.filter(
+        user => user.id !== except_user_id && user.is_provider === false
+      )
+    }
+
+    return users
+  }
+
   public async findByEmail(email: string): Promise<User | undefined> {
     const user = this.users.find(user => user.email === email)
 
