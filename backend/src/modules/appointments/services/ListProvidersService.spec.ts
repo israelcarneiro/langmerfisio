@@ -31,7 +31,7 @@ describe('ListProviders', () => {
       name: 'John Roe',
       email: 'johnroe@example.com',
       password: '123123',
-      is_provider: true
+      is_provider: false
     })
 
     const providers = await listProviders.execute({
