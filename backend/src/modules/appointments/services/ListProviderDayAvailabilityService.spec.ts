@@ -1,5 +1,3 @@
-// import AppError from '@shared/errors/AppError'
-
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository'
 import ListProviderDayAvailabilityService from './ListProviderDayAvailabilityService'
 
@@ -17,12 +15,16 @@ describe('ListProviderDayAvailability', () => {
   it('should be able to list the day availability from provider', async () => {
     await fakeAppointmentsRepository.create({
       provider_id: 'any_provider_id',
-      date: new Date(2021, 8, 20, 8, 0, 0)
+      date: new Date(2021, 8, 20, 14, 0, 0)
     })
 
     await fakeAppointmentsRepository.create({
       provider_id: 'any_provider_id',
-      date: new Date(2021, 8, 20, 10, 0, 0)
+      date: new Date(2021, 8, 20, 16, 0, 0)
+    })
+
+    jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+      return new Date(2021, 8, 20, 11, 0, 0).getTime()
     })
 
     const availability = await listProviderDayAvailability.execute({
@@ -35,9 +37,13 @@ describe('ListProviderDayAvailability', () => {
     expect(availability).toEqual(
       expect.arrayContaining([
         { hour: 8, available: false },
-        { hour: 9, available: true },
+        { hour: 9, available: false },
         { hour: 10, available: false },
-        { hour: 11, available: true }
+        { hour: 13, available: true },
+        { hour: 14, available: false },
+        { hour: 15, available: true },
+        { hour: 16, available: false },
+        { hour: 17, available: true }
       ])
     )
   })
