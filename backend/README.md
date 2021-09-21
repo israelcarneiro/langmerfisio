@@ -35,8 +35,8 @@
 **RF**
 
 - O paciente deve poder listar todos os fisioterapeutas cadastrados; ✔
-- O paciente deve poder listar os dias de um mês com pelo menos horário disponível de um fisioterapeuta;
-- O paciente deve poder listar horários disponíveis em dias específicos de um fisioterapeuta;
+- O paciente deve poder listar os dias de um mês com pelo menos horário disponível de um fisioterapeuta; ✔
+- O paciente deve poder listar horários disponíveis em dias específicos de um fisioterapeuta; ✔
 - O paciente deve poder realizar um novo agendamento com um fisioterapeuta específico
 
 **RNF**
@@ -45,10 +45,10 @@
 
 **RN**
 
-- Cada agendamento deve durar 1h exatamente;
-- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h);
-- O paciente não pode agendar em um horário já ocupado;
-- O paciente não pode agendar em um horário que já passou;
+- Cada agendamento deve durar 1h exatamente; ✔
+- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h); ✔
+- O paciente não pode agendar em um horário já ocupado; ✔
+- O paciente não pode agendar em um horário que já passou; ✔
 - O paciente não pode agendar serviços consigo mesmo;
 
 ## Agendamentos pelo Fisioterapeuta
@@ -56,8 +56,8 @@
 **RF**
 
 - O fisioterapeuta deve poder listar todos os pacientes cadastrados; ✔
-- O fisioterapeuta deve poder listar os dias de um mês com pelo menos horário disponível dele mesmo;
-- O fisioterapeuta deve poder listar horários disponíveis em dias específicos dele mesmo;
+- O fisioterapeuta deve poder listar os dias de um mês com pelo menos horário disponível dele mesmo;✔
+- O fisioterapeuta deve poder listar horários disponíveis em dias específicos dele mesmo;✔
 - O fisioterapeuta deve poder realizar um novo agendamento com um paciente específico
 
 **RNF**
@@ -67,9 +67,9 @@
 **RN**
 
 - Cada agendamento deve durar 1h exatamente;
-- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h);
-- O fisioterapeuta não pode agendar em um horário já ocupado;
-- O fisioterapeuta não pode agendar em um horário que já passou;
+- Os agendamentos devem estar disponíveis entre 8h às 18h (primeiras às 8h, último às 17h);✔
+- O fisioterapeuta não pode agendar em um horário já ocupado;✔
+- O fisioterapeuta não pode agendar em um horário que já passou;✔
 - O fisioterapeuta não pode agendar serviços consigo mesmo;
 
 # Cancelamentos de Serviços
