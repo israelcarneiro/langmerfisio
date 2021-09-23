@@ -1,14 +1,20 @@
 import AppError from '@shared/errors/AppError'
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository'
 import ListPatientsService from '../services/ListPatientsService'
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 
 let fakeUsersRepository: FakeUsersRepository
+let fakeCacheProvider: FakeCacheProvider
 let listPatients: ListPatientsService
 
 describe('ListPatients', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository()
-    listPatients = new ListPatientsService(fakeUsersRepository)
+    fakeCacheProvider = new FakeCacheProvider()
+    listPatients = new ListPatientsService(
+      fakeUsersRepository,
+      fakeCacheProvider
+    )
   })
 
   it('should be able to list the patients except the patient logged', async () => {
