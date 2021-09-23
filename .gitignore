@@ -8,3 +8,4 @@ temp/
 tmp/
 !temp/.gitkeep
 coverage
+ormconfig.json
