@@ -6,8 +6,17 @@ import { NavigationContainer } from '@react-navigation/native'
 import AppProvider from './hooks'
 import Routes from './routes'
 
+const linking = {
+  prefixes: ['langmerfisio://langmerfisio/'],
+  config: {
+    screens: {
+      RecoveryPassword: 'reset-password'
+    }
+  }
+}
+
 const App: React.FC = () => (
-  <NavigationContainer>
+  <NavigationContainer linking={linking}>
     <StatusBar
       barStyle="light-content"
       backgroundColor="rgb(0,109,119)"

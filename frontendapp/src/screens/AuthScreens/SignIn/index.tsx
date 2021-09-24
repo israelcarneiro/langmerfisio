@@ -123,7 +123,7 @@ const SignIn: React.FC = () => {
               </Button>
             </Form>
             <ForgotPassword
-              onPress={() => Alert.alert('burrao esqueceu a senha!!!')}
+              onPress={() => navigation.navigate('ForgotPassword')}
             >
               <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
             </ForgotPassword>
