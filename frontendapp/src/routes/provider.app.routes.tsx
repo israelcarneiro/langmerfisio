@@ -9,7 +9,7 @@ const AppProvider = createNativeStackNavigator()
 const AppProviderRoutes: React.FC = () => (
   <AppProvider.Navigator
     screenOptions={{
-      // headerShown: false,
+      headerShown: false,
       contentStyle: { backgroundColor: 'rgba(0, 109, 119, 0.8)' }
     }}
   >
