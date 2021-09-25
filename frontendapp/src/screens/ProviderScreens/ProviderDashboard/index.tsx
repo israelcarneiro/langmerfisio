@@ -2,12 +2,15 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { Alert, TouchableOpacity } from 'react-native'
 
 import DateTimePicker from '@react-native-community/datetimepicker'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { subBusinessDays, addBusinessDays, format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import Icon from 'react-native-vector-icons/Feather'
 
 import Button from '../../../components/Button'
 import { useAuth } from '../../../hooks/auth'
+import { RootStackParamList } from '../../../routes/provider.app.routes'
 import api from '../../../services/api'
 import {
   Container,
@@ -49,11 +52,17 @@ interface Appoinment {
   }
 }
 
+type ProviderDashboardScreenProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'ProviderDashboard'
+>
+
 const ProviderDashboard: React.FC = () => {
   const [showDatePicker, setShowDatePicker] = useState(false)
   const [appoinments, setAppointments] = useState<Appoinment[]>([])
   const [selectedDate, setSelectedDate] = useState(new Date())
   const { signOut, user } = useAuth()
+  const navigation = useNavigation<ProviderDashboardScreenProp>()
 
   useEffect(() => {
     api
@@ -214,7 +223,7 @@ const ProviderDashboard: React.FC = () => {
               </Appointment>
             ))}
           </AfternoonSection>
-          <Button onPress={() => Alert.alert('VAMO AGENDAR PORRA')}>
+          <Button onPress={() => navigation.navigate('SelectPatient')}>
             Agendar
           </Button>
         </Schedule>
