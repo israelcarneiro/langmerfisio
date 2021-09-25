@@ -61,7 +61,7 @@ const ProviderDashboard: React.FC = () => {
   const [showDatePicker, setShowDatePicker] = useState(false)
   const [appoinments, setAppointments] = useState<Appoinment[]>([])
   const [selectedDate, setSelectedDate] = useState(new Date())
-  const { signOut, user } = useAuth()
+  const { user } = useAuth()
   const navigation = useNavigation<ProviderDashboardScreenProp>()
 
   useEffect(() => {
@@ -108,9 +108,9 @@ const ProviderDashboard: React.FC = () => {
     setSelectedDate(nextDayOfCurrentDay)
   }, [selectedDate])
 
-  const handleSignOut = useCallback(() => {
-    signOut()
-  }, [signOut])
+  const navigateToProfile = useCallback(() => {
+    navigation.navigate('ProfileProvider')
+  }, [navigation])
 
   const dayOfTheYearInFull = useMemo(() => {
     return format(selectedDate, "dd 'de' MMMM 'de' yyyy", {
@@ -137,7 +137,7 @@ const ProviderDashboard: React.FC = () => {
           Bem vindo, {'\n'}
           <UserName>{user.name}</UserName>
         </HeaderTitle>
-        <ProfileButton onPress={handleSignOut}>
+        <ProfileButton onPress={navigateToProfile}>
           <UserAvatar source={{ uri: user.avatar_url }} />
         </ProfileButton>
       </Header>
