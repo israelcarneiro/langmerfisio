@@ -5,8 +5,8 @@ export const Container = styled.View`
 `
 
 export const Header = styled.View`
-  padding: 24px;
-  background: #006d77;
+  padding: 24px 24px 12px;
+  background: #00575f;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -30,6 +30,7 @@ export const UserAvatar = styled.Image`
   width: 70px;
   height: 70px;
   border-radius: 35px;
+  margin-top: 10px;
 `
 
 export const Content = styled.ScrollView`
@@ -65,7 +66,7 @@ export const Appointment = styled.View`
   width: 100%;
   height: 120px;
   border-radius: 10px;
-  background: #006d77;
+  background: #00575f;
   margin-bottom: 20px;
   elevation: 7;
 `

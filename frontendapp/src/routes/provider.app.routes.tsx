@@ -2,6 +2,7 @@ import React from 'react'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
+import AppointmentCreated from '../screens/ProviderScreens/AppointmentCreated'
 import CreateAppointment from '../screens/ProviderScreens/CreateAppointment'
 import ProviderDashboard from '../screens/ProviderScreens/ProviderDashboard'
 import SelectPatient from '../screens/ProviderScreens/SelectPatient'
@@ -11,6 +12,9 @@ export type RootStackParamList = {
   SelectPatient: undefined
   CreateAppointment: {
     userId: string
+  }
+  AppointmentCreated: {
+    date: number
   }
 }
 
@@ -31,6 +35,10 @@ const AppProviderRoutes: React.FC = () => (
     <AppProvider.Screen
       name="CreateAppointment"
       component={CreateAppointment}
+    />
+    <AppProvider.Screen
+      name="AppointmentCreated"
+      component={AppointmentCreated}
     />
   </AppProvider.Navigator>
 )

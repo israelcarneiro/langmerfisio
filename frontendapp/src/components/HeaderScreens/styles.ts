@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 
 export const Header = styled.View`
   padding: 24px 24px 12px;
-  background: #006d77;
+  background: #00575f;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;

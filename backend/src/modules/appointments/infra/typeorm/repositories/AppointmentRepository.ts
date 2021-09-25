@@ -70,7 +70,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
   public async create({
     provider_id,
     user_id,
-    observation = 'Sem observações',
+    observation,
     date
   }: ICreateAppointmentDTO): Promise<Appointment> {
     const appointment = this.ormRepository.create({

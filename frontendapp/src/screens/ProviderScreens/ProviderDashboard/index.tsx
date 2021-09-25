@@ -132,7 +132,7 @@ const ProviderDashboard: React.FC = () => {
 
   return (
     <Container>
-      <Header style={{ elevation: 10 }}>
+      <Header style={{ elevation: 7 }}>
         <HeaderTitle>
           Bem vindo, {'\n'}
           <UserName>{user.name}</UserName>
@@ -168,7 +168,6 @@ const ProviderDashboard: React.FC = () => {
             {morningAppointments.map(appointment => (
               <Appointment key={appointment.id}>
                 <PatientInfo>
-                  {console.log(appointment.user.avatar_url)}
                   <PatientAvatar
                     source={{ uri: appointment.user.avatar_url }}
                   />
@@ -199,7 +198,6 @@ const ProviderDashboard: React.FC = () => {
             {afternoonAppointments.map(appointment => (
               <Appointment key={appointment.id}>
                 <PatientInfo>
-                  {console.log(appointment.user.avatar_url)}
                   <PatientAvatar
                     source={{ uri: appointment.user.avatar_url }}
                   />

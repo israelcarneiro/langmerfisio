@@ -1,20 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { Alert } from 'react-native'
 
 import { useNavigation } from '@react-navigation/core'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import Icon from 'react-native-vector-icons/Feather'
 
-import { useAuth } from '../../../hooks/auth'
+import HeaderScreens from '../../../components/HeaderScreens'
 import { RootStackParamList } from '../../../routes/provider.app.routes'
 import api from '../../../services/api'
 import {
   Container,
-  Header,
-  HeaderTitle,
-  BackButton,
-  ProfileButton,
-  UserAvatar,
   Content,
   PatientListTitle,
   PatientsList,
@@ -33,7 +26,6 @@ type ProviderDashboardScreenProp = NativeStackNavigationProp<RootStackParamList>
 
 const SelectPatient: React.FC = () => {
   const [patients, setPatients] = useState<Patient[]>([])
-  const { user } = useAuth()
   const navigation = useNavigation<ProviderDashboardScreenProp>()
 
   useEffect(() => {
@@ -51,15 +43,7 @@ const SelectPatient: React.FC = () => {
 
   return (
     <Container>
-      <Header style={{ elevation: 10 }}>
-        <BackButton onPress={() => navigation.goBack()}>
-          <Icon name="arrow-left" size={24} color="#edf6f9" />
-        </BackButton>
-        <HeaderTitle> Agendamento </HeaderTitle>
-        <ProfileButton onPress={() => Alert.alert('segura')}>
-          <UserAvatar source={{ uri: user.avatar_url }} />
-        </ProfileButton>
-      </Header>
+      <HeaderScreens previousTitle="Homepage" />
 
       <Content>
         <PatientsList
