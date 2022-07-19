@@ -36,11 +36,6 @@ This app features all the latest tools and practices in mobile development!
 - 💹 **Node Js** — A web framework for Node Js
 - **Redis** - A open source (BSD licensed), in-memory data structure store, used as a database and cache
 
-## Getting started
-
-Describe here the way to use/install your project
-
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
